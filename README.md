@@ -1,3 +1,4 @@
+# Quizter
 
 //================================//
 //After navigated to the quiz page//
@@ -5,6 +6,7 @@
 
 //1. Send off to get collection of random movies.
 function getData
+
 //2. Pull four random movies
 function collectFourMovies(collection) {
   var fourMovieHash = [];
@@ -21,4 +23,3 @@ for (var i = 0; i < collection.length; i++) {
 
 
 //Ten question and then done.
-# Quizter

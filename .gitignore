@@ -1,0 +1,7 @@
+.git
+.flooignore
+.floo
+.firebaserc
+firebase.json
+package.json
+database.rules.json

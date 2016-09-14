@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  outline: solid red 1px;
+}
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  background-color: rgba(0,0,0,.7);
+  color: lightblue;
+}
+
+.container {
+  height: 500px;
+  max-width: 80%;
+  background-color: white;
+  margin: 0 auto;
+
+}
+.partials-container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+
+}
+
+.login-page {
+
+}
+
+.begin-page {
+
+}
