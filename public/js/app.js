@@ -5,17 +5,32 @@
       'firebase',
       'ui.router'
     ])
-    .config(function($stateProvider){
+    .config(function( $stateProvider, $urlRouterProvider){
+      $urlRouterProvider.otherwise("/");
 
-      var quizPageState = {
-        name:'quizPage',
-        url:'/quizPage',
-        controller: 'quizCtrl',
-        controlerAs: 'vm',
-        templateUrl:'views/partials/quizPage.html'
-      }
-
-      $stateProvider.state(quizPageState);
+      $stateProvider
+        .state('home', {
+          name:'home',
+          url:'/',
+          controlerAs: 'vm',
+          controller: 'mainCtrl',
+          templateUrl: './views/partials/home.html'
+      })
+        .state('login', {
+          name:'login',
+          url:'login',
+          controllerAs: 'vm',
+          controler: 'authCtrl',
+          templateUrl: './views/parials/login.html'
+        })
+        .state('game', {
+          name:'game',
+          url:'game',
+          controllerAs: 'vm',
+          controler: 'quizCtrl',
+          templateUrl: './views/parials/game.html'
+        })
+      ;
 
     });
 
