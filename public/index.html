@@ -11,31 +11,11 @@
   <body ng-controller="authCtrl as lg">
     <div class="container" ng-controller="mainCtrl as vm">
     <ui-view></ui-view>
-    <div class="login-page partials-container" ng-if="vm.areTheyLoggedIn">
-      <div class="login-logo" >
-        <h1>Movie Quizzer</h1>
-      </div>
 
-      <h2>Login</h2>
-      <form>
-        <span>
-          <button ng-click="lg.login()">Login</button>
-        </span>
-      </form>
-    </div>
-    <div class="begin-page partials-container" ng-if="vm.isGameStarted">
-      <a ui-sref='quizPage' ui-sref-active='active'>
-        <button ng-click="vm.goToGamePage()">
-          <strong>Begin</strong>
-        </button>
-      </a>
-    </div>
-    </div>
   <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
-  <!-- <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script> -->
   <!-- AngularFire -->
   <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
   <!-- ui Router -->

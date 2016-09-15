@@ -1,0 +1,20 @@
+<div class="login-page partials-container" ng-if="vm.areTheyLoggedIn">
+  <div class="login-logo" >
+    <h1>Movie Quizzer</h1>
+  </div>
+
+  <h2>Login</h2>
+  <form>
+    <span>
+      <button ng-click="lg.login()">Login</button>
+    </span>
+  </form>
+</div>
+<div class="begin-page partials-container" ng-if="vm.isGameStarted">
+  <a ui-sref='quizPage' ui-sref-active='active'>
+    <button ng-click="vm.goToGamePage()">
+      <strong>Begin</strong>
+    </button>
+  </a>
+</div>
+</div>
