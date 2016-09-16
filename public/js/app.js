@@ -12,7 +12,7 @@
         .state('home', {
           name:'home',
           url:'/',
-          controlerAs: 'vm',
+          controllerAs: 'main',
           controller: 'mainCtrl',
           data: {
             requireLogin: true
@@ -54,10 +54,6 @@
         })
       ;
 
-    })
-    .run(function($rootScope){
-      console.log($rootScope);
-      
     });
 
 
