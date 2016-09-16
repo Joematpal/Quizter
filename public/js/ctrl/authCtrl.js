@@ -1,20 +1,33 @@
 (function() {
   'use strict';
-  angular.module('themoviequizzer')
+  angular.module('quizter')
     .controller('authCtrl', authCtrl);
 
-  function authCtrl () {
-    var lg = this;
+  function authCtrl ($state, userFcty) {
+    var au = this;
+    //
 
-    lg.clicker = function( ) {
-      console.log('What is this email?', lg.user.email)
+
+    // Listen for auth state changes
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (!user) {
+
+      }
+     });
+
+
+    au.login = function() {
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithRedirect(provider);
+
+      };
+
+    au.tester = function(){
+    //  $rootScope.currentUser = firebase.auth().currentUser.uid;
+      console.log(au.currentUser)
     }
 
-    lg.login = function(email, password) {
-      var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-      
-      };
 
 
 

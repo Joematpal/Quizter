@@ -1,6 +1,9 @@
 (function() {
   'use strict';
-    angular.module('themoviequizzer')
+    angular.module('quizter')
+    .config(function($httpProvider){
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+})
       .factory('quizFcty', quizFcty);
 
       function quizFcty($http, $q) {
@@ -15,16 +18,20 @@
         return {
           getData: getData,
           anyUniqRecursion: anyUniqRecursion,
+  
         }
 
+
+
         //======================================================================
+
 
         function getData() {
           //var topTenMoviePages = anyUniqRecursion()
           $http.get(baseUrl + movieRandomUrl + apiKey).then(function(results) {
             randomMovieCollection = results.data.results;
             collectFourMovies(randomMovieCollection);
-            console.log("Get Shit",randomMovieCollection);
+            //console.log("Get Shit",randomMovieCollection);
           })
           .catch(function(err) {
             console.log(err);
@@ -36,7 +43,7 @@
           var fourMovieHash = [];
           var randomNumber1 = Math.random
           for (var i = 0; i < 4; i++) {
-            console.log(collection[i]);
+            //console.log(collection[i]);
 
           }
         }

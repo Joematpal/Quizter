@@ -1,37 +1,63 @@
 (function() {
   'use strict';
   angular
-    .module('themoviequizzer', [
+    .module('quizter', [
       'firebase',
       'ui.router'
     ])
     .config(function( $stateProvider, $urlRouterProvider){
       $urlRouterProvider.otherwise("/");
 
-      $stateProvider
+       $stateProvider
         .state('home', {
           name:'home',
           url:'/',
           controlerAs: 'vm',
           controller: 'mainCtrl',
+          data: {
+            requireLogin: true
+          },
           templateUrl: './views/partials/home.html'
-      })
+        })
         .state('login', {
           name:'login',
+          parent: "home",
           url:'login',
-          controllerAs: 'vm',
-          controler: 'authCtrl',
-          templateUrl: './views/parials/login.html'
+          controllerAs: 'au',
+          controller: 'authCtrl',
+          data: {
+            requireLogin: false
+          },
+          templateUrl: './views/partials/login.html'
         })
         .state('game', {
           name:'game',
+          parent: "home",
           url:'game',
           controllerAs: 'vm',
-          controler: 'quizCtrl',
-          templateUrl: './views/parials/game.html'
+          controller: 'quizCtrl',
+          data: {
+            requireLogin: true
+          },
+          templateUrl: './views/partials/game.html'
+        })
+        .state('profile', {
+          name:'profile',
+          url:'profile',
+          parent:'home',
+          controllerAs: 'vm',
+          controller: 'mainCtrl',
+          data: {
+            requireLogin: true
+          },
+          templateUrl: './views/partials/profile.html'
         })
       ;
 
+    })
+    .run(function($rootScope){
+      console.log($rootScope);
+      
     });
 
 

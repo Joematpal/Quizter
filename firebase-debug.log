@@ -3,13 +3,26 @@
 [debug] CLI Version:  3.0.7
 [debug] Platform:     darwin
 [debug] Node Version: v5.10.1
-[debug] Time:         Thu Sep 15 2016 10:21:55 GMT-0500 (CDT)
+[debug] Time:         Thu Sep 15 2016 20:38:43 GMT-0500 (CDT)
 [debug] ----------------------------------------------------------------------
 [debug] 
 [info] Starting Firebase development server...
 [info] 
 [info] Project Directory: /Users/josephpalacio/tmp/themoviequizzer
-[warn] ⚠  Port 5000 is not available. Trying another port...
 [info] Public Directory: public
 [info] 
-[info] Server listening at: http://localhost:5001
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/Cellar/node/5.10.1/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.7
+[debug] Platform:     darwin
+[debug] Node Version: v5.10.1
+[debug] Time:         Fri Sep 16 2016 09:49:57 GMT-0500 (CDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/josephpalacio/tmp/themoviequizzer
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000

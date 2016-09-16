@@ -1,1 +1,61 @@
-<h1>does this look good?</h1>
+<ui-view>
+  <div class="begin-page partials-container">
+    <div class="container">
+
+    <div class="row">
+      <div class="logo eleven columns">
+        <h1>Quizter</h1>
+      </div>
+      <div class="hamberger one column">
+      <a href="#"><h1>=</h1></a>
+      </div>
+    </div>
+      <div class="row">
+        <div class="avatar-box four columns">
+          <img src="" alt="" />
+        </div>
+        <div class="user-data three columns">
+          <h2>username</h2>
+          <h5>email@email.com</h5>
+        </div>
+        <div class="high-scores five columns">
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dave Gamache</td>
+                <td>26</td>
+                <td>Male</td>
+                <td>San Francisco</td>
+              </tr>
+              <tr>
+                <td>Dwayne Johnson</td>
+                <td>42</td>
+                <td>Male</td>
+                <td>Hayward</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <h3>what this is</h3>
+      <select>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <button ng-click="vm.goToGamePage()">
+        Begin
+      </button>
+
+  </div>
+  </div>
+</ui-view>

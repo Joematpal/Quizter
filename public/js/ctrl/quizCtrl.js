@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-    angular.module('themoviequizzer')
+    angular.module('quizter')
       .controller('quizCtrl', quizCtrl);
 
       function quizCtrl(quizFcty, mainFcty) {
@@ -20,16 +20,9 @@
 
         function getData() {
           quizFcty.getData();
-    
-        }
-
-        function init() {
-          mainFcty.doTheyNeedToLogIn(false)
-          vm.areTheyLoggedIn = mainFcty.needLogIn;
-          mainFcty.doTheyNeedGameToStart(false)
-          vm.isGameStarted = mainFcty.needGameStart;
 
         }
+
 
 
       }
