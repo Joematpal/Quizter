@@ -1,0 +1,132 @@
+<div class="begin-page partials-container">
+  <div class="modal-container" ng-if="">
+    <div class="user-modal">
+      <form>
+        <label>Display Name</label>
+        <input type="text">
+        <label>Email</label>
+        <input type="text">
+        <label>Age</label>
+        <input type="text">
+        <label>Gender</label>
+        <input type="text">
+        <label>Location</label>
+        <input type="text">
+        <br>
+        <button type="submit" class="modal-button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+  <div class="row">
+
+    <div class="logo ten columns">
+      <h1>Quizter</h1>
+    </div>
+    <div class="hamburger one column">
+    <a href="#"><h1>=</h1></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
+      <div class="row">
+        <div class="avatar-box six columns">
+          <img src="" alt="" />
+        </div>
+
+        <div class="user-data six columns">
+          <p class="hover">
+            edit
+          </p>
+          <p>
+            Name:
+
+            {{dashboard.currentUser.displayName}}
+          </p>
+          <p>
+            Email:
+
+            {{dashboard.currentUser.email}}
+          </p>
+          <p>
+            Age:
+            {{dashboard.currentUser.age}}
+          </p>
+          <p>
+            Gender:
+            {{dashboard.currentUser.gender}}
+          </p>
+          <p>
+            Location:
+            {{dashboard.currentUser.location}}
+          </p>
+          <p>
+            High Score:
+            {{dashboard.currentUser.highScore}}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <div class="game-sorting">
+            <label>Pick the</label>
+            <select ng-model='selectedDecade'>
+              <option value="">Best of</option>
+              <option value="{{decade.id}}" ng-repeat="decade in dashboard.decadeList">{{decade.name}}</option>
+            </select>
+            <label>Pick the</label>
+            <select ng-model='selectedCategory'>
+              <option value="">Category</option>
+              <option value="{{category.id}}" ng-repeat="category in dashboard.categoryList">{{category.name}}</option>
+            </select>
+            <select ng-model='selectedTropes'>
+              <option value="">Tropes</option>
+              <option value="{{gTrope.id}}" ng-repeat="trope in dashboard.tropeList">{{trope.name}}</option>
+            </select>
+            <select ng-model='selectedGenre'>
+              <option value="">Genre</option>
+              <option value="{{genre.id}}" ng-repeat="genre in dashboard.genreList">{{genre.name}}</option>
+            </select>
+            <button ng-click="dashboard.initGame([selectedDecade, selectedCategory, selectedTropes, selectedGenre])">
+              Begin
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="six columns">
+      <div class="row">
+      <div class="high-scores twelve columns">
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Sex</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dave Gamache</td>
+              <td>26</td>
+              <td>Male</td>
+              <td>San Francisco</td>
+            </tr>
+            <tr>
+              <td>Dwayne Johnson</td>
+              <td>42</td>
+              <td>Male</td>
+              <td>Hayward</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+</div>
+</div>
+</div>

@@ -6,7 +6,7 @@
       'ui.router'
     ])
     .config(function( $stateProvider, $urlRouterProvider){
-      $urlRouterProvider.otherwise("/");
+      $urlRouterProvider.otherwise("/dashboard");
 
        $stateProvider
         .state('home', {
@@ -18,6 +18,17 @@
             requireLogin: true
           },
           templateUrl: './views/partials/home.html'
+        })
+        .state('dashboard', {
+          name:'dashboard',
+          parent: 'home',
+          url:'dashboard',
+          controllerAs: 'dashboard',
+          controller: 'dashboardCtrl',
+          data: {
+            requireLogin: true
+          },
+          templateUrl: './views/partials/dashboard.html'
         })
         .state('login', {
           name:'login',

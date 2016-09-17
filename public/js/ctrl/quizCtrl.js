@@ -9,12 +9,15 @@
 
         getData();
 
-        vm.test = "does this work";
-
-        vm.clicky = function(){
-          console.log('clicky')
-          //$state.go('game');
+        vm.test = function(){
+            console.log('something', mainFcty.currentUser);
         }
+
+
+        // vm.clicky = function(){
+        //   //console.log('clicky')
+        //   //$state.go('game');
+        // }
 
 
         //======================================================================

@@ -23,3 +23,14 @@ for (var i = 0; i < collection.length; i++) {
 
 
 //Ten question and then done.
+
+
+
+
+//APIs
+
+////OMDb API
+
+////THDb API
+
+https://api.themoviedb.org/3/movie/550?api_key=10fa5bc738dc7e2b1673233b87fdc97a

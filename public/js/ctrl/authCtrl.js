@@ -14,14 +14,10 @@
       if (!user) {
         $state.go('login');
       } else {
-        userFcty.currentUser = {
-          name: '',
-          email: firebase.auth().currentUser.email,
-          uid:firebase.auth().currentUser.uid,
-        };
-
+        userFcty.currentUser = firebase.auth().currentUser;
+        console.log('authCtrl, currentUser', userFcty.currentUser);
         if(userFcty.currentUser){
-          $state.go('home');
+          $state.go('dashboard');
         }
 
 
