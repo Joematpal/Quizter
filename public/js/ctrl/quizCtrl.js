@@ -4,33 +4,28 @@
       .controller('quizCtrl', quizCtrl);
 
       function quizCtrl(quizFcty, mainFcty, $state) {
-        //Local Variables=======================================================
+        //Global Variables=======================================================
         var vm = this;
+        var inc = 0;
 
-        getData();
 
-        vm.test = function(){
-            console.log('something', mainFcty.currentUser);
+        vm.questionView = function(){
+          vm.movieitem = quizFcty.movieList[inc];
+          console.log(quizFcty.movieList[inc])
+          //vm.movieitem[0];
+
+        };
+
+        vm.questionView();
+
+        vm.gameManager = function() {
+          console.log(quizFcty.movieList[1], typeof inc, inc);
+          inc++;
+          console.log(quizFcty.movieList[1], typeof inc, inc);
+          vm.movieitem = quizFcty.movielist[inc];
+
+          console.log(quizFcty.movieList[1], typeof inc, inc);
         }
-
-
-        // vm.clicky = function(){
-        //   //console.log('clicky')
-        //   //$state.go('game');
-        // }
-
-
-        //======================================================================
-
-
-
-        //====================================================================
-
-        function getData() {
-          quizFcty.getData();
-
-        }
-
 
 
       }

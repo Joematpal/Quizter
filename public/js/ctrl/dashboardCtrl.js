@@ -3,34 +3,58 @@
     angular.module('quizter')
       .controller('dashboardCtrl', dashboardCtrl);
 
-      function dashboardCtrl(mainFcty, quizFcty, userFcty, $state, $rootScope){
+      function dashboardCtrl(mainFcty, quizFcty, userFcty, $state, $rootScope, $scope){
         var dashboard = this;
+        var auth = firebase.auth();
+        var db = firebase.database();
+        firebase.auth().onAuthStateChanged(function(user){
+          if (!user){
+            $state.go('login');
+          } else {
+
+          }
+        })
+
+        var userId = dashboard.UID;
+
 
         dashboard.getGenreList = getGenreList;
         dashboard.getCategoryList = getCategoryList;
         dashboard.getDecadeList = getDecadeList;
         dashboard.getTropeList = getTropeList;
-        // var plainRef = firebase.database().ref().child('object');
-        // plainRef.on('value', snap => console.log(snap.val()));
-        //
-        dashboard.initGame = function(hash){
-          console.log(hash);
-          quizFcty.getData(hash);
-          //$state.go('game');
-          //var usersRef = firebase.database().ref('users').child(userFcty.currentUser.uid);
 
-          //usersRef.update(userFcty.currentUser);
-          //console.log(userFcty.currentUser);
-          //userFcty.currentUser.name
+        dashboard.editUser = false;
+        dashboard.editUserBtn = editUserBtn;
+        dashboard.getUserFromModal = getUserFromModal;
+        dashboard.currentUser = userFcty.currentUser;
+        dashboard.logout = logout;
+
+
+
+        dashboard.initGame = function(hash){
+          quizFcty.publishTheQuestions(hash)
+            .then(function(results){
+              quizFcty.movieList = results;
+              $state.go('game');
+            })
+            .catch(function(err){
+              console.log(err);
+            });
+
         }
 
-        var usersChildRef = firebase.database().ref('users/'+userFcty.currentUser.uid);
-        //console.log('userRef',usersChildRef);
-        usersChildRef.on('value', snap => {
-          dashboard.usersNode = snap.val()
-          //JSON.stringify(snap.val(), null, 3);
-          //console.log('What is this',dashboard.usersNode);
-        });
+        function logout(){
+          auth.signOut();
+        }
+
+        function editUserBtn(){
+          return dashboard.editUser = !dashboard.editUser;
+        }
+
+        function getUserFromModal(userModal){
+          userFcty.updateUserProfile(userModal, dashboard.currentUser.uid);
+          dashboard.editUser = false;
+        }
 
         function getGenreList(){
             quizFcty.getGenreList()
@@ -48,17 +72,31 @@
         }
 
         function getTropeList(){
-          return
+          dashboard.tropeList = quizFcty.getTropeList();
         }
 
         function init(){
-          userFcty.canIbeHere();
-          dashboard.currentUser = userFcty.currentUser;
           dashboard.getDecadeList();
           dashboard.getGenreList();
           dashboard.getCategoryList();
-        }
-        init();
+          dashboard.getTropeList();
 
+          userFcty.userProfile.email = userFcty.currentUser.email;
+          dashboard.userProfile = userFcty.userProfile;
+
+          function getProfile(uid){
+            var profileUser = db.ref('profiles/' + uid);
+            //watch on value of uid of profiles
+            profileUser.on('value', snap => {
+              userFcty.userProfile = snap.val();
+              dashboard.userProfile = userFcty.userProfile;
+              $scope.$apply();
+            });
+          }
+          getProfile(dashboard.currentUser.uid);
+
+        }
+
+        init();
       }
 }());

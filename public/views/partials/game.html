@@ -1,36 +1,23 @@
 <div class="partials-container">
-  <div class="container">
-    <div class="row">
+  <div class="quiz-page container">
 
-    </div>
-    <div class="row">
-      <div class="question-box one colum" >
+    <img ng-src="{{vm.movieitem.poster}}"/>
 
-      </div>
-    </div>
-
-    <div class="answer-box">
-      <div class="row">
-        <div class="six columns">
-          <button ng-click="vm.test()">A.</button>
-        </div>
-        <div class="six columns">
-          <button>B.</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="six columns">
-          <button>C.</button>
-        </div>
-        <div class="six columns">
-          <button>D.</button>
-        </div>
-      </div>
+    <h1>{{vm.movieitem.question}}</h1>
 
 
 
-    </div>
+
+          <button ng-click="vm.gameManager()">A.{{vm.movieitem.choiceOne}}</button>
+
+          <button ng-click="vm.gameManager()">B.{{vm.movieitem.choiceTwo}}</button>
+
+
+          <button ng-click="vm.gameManager()">C.{{vm.movieitem.answer}}</button>
+
+          <button ng-click="vm.gameManager()">D.{{vm.movieitem.choiceThree}}</button>
+
+
+
   </div>
-
-
 </div>

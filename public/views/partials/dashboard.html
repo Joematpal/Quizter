@@ -1,19 +1,19 @@
 <div class="begin-page partials-container">
-  <div class="modal-container" ng-if="">
+  <div class="modal-container" ng-if="dashboard.editUser">
     <div class="user-modal">
       <form>
         <label>Display Name</label>
-        <input type="text">
-        <label>Email</label>
-        <input type="text">
+        <input type="text" ng-model="dashboard.userProfile.name">
+        <label>email</label>
+        <input type="text" placeholder="{{dashboard.userProfile.email}}" disabled>
         <label>Age</label>
-        <input type="text">
+        <input type="text" ng-model="dashboard.userProfile.age">
         <label>Gender</label>
-        <input type="text">
+        <input type="text" ng-model="dashboard.userProfile.gender">
         <label>Location</label>
-        <input type="text">
+        <input type="text" ng-model="dashboard.userProfile.location">
         <br>
-        <button type="submit" class="modal-button">Submit</button>
+        <button type="submit" class="modal-button" ng-click="dashboard.getUserFromModal(dashboard.userProfile)">Submit</button>
       </form>
     </div>
   </div>
@@ -35,34 +35,37 @@
         </div>
 
         <div class="user-data six columns">
-          <p class="hover">
+          <p class="hover" ng-click="dashboard.editUserBtn()">
             edit
+          </p>
+          <p class="hover"ng-click="dashboard.logout()">
+            sign out
           </p>
           <p>
             Name:
 
-            {{dashboard.currentUser.displayName}}
+            {{dashboard.userProfile.name}}
           </p>
           <p>
             Email:
 
-            {{dashboard.currentUser.email}}
+            {{dashboard.userProfile.email}}
           </p>
           <p>
             Age:
-            {{dashboard.currentUser.age}}
+            {{dashboard.userProfile.age}}
           </p>
           <p>
             Gender:
-            {{dashboard.currentUser.gender}}
+            {{dashboard.userProfile.gender}}
           </p>
           <p>
             Location:
-            {{dashboard.currentUser.location}}
+            {{dashboard.userProfile.location}}
           </p>
           <p>
             High Score:
-            {{dashboard.currentUser.highScore}}
+            {{dashboard.userProfile.highScore}}
           </p>
         </div>
       </div>
@@ -79,15 +82,19 @@
               <option value="">Category</option>
               <option value="{{category.id}}" ng-repeat="category in dashboard.categoryList">{{category.name}}</option>
             </select>
+            <label>Pick the</label>
+
             <select ng-model='selectedTropes'>
               <option value="">Tropes</option>
-              <option value="{{gTrope.id}}" ng-repeat="trope in dashboard.tropeList">{{trope.name}}</option>
+              <option value="{{trope.id}}" ng-repeat="trope in dashboard.tropeList">{{trope.name}}</option>
             </select>
+            <label>Pick the</label>
+
             <select ng-model='selectedGenre'>
               <option value="">Genre</option>
               <option value="{{genre.id}}" ng-repeat="genre in dashboard.genreList">{{genre.name}}</option>
             </select>
-            <button ng-click="dashboard.initGame([selectedDecade, selectedCategory, selectedTropes, selectedGenre])">
+            <button class="begin-button" ng-click="dashboard.initGame([selectedDecade, selectedCategory, selectedTropes, selectedGenre])">
               Begin
             </button>
           </div>
@@ -98,6 +105,10 @@
 
     </div>
     <div class="six columns">
+      <li ng-repeat=" movies in dashboard.movieList"
+      >{{movies.title}}</li>
+
+
       <div class="row">
       <div class="high-scores twelve columns">
         <table class="u-full-width">
